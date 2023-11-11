@@ -26,7 +26,7 @@ export class Chart {
               borderColor: "rgba(235, 162, 54, 1)",
               borderWidth: 8,
               fill: false,
-              yAxisID: "y2",
+              yAxisID: "y1",
             },
             {
               label: "Duration",
@@ -34,14 +34,14 @@ export class Chart {
               borderColor: "rgba(255, 206, 86, 1)",
               borderWidth: 4,
               fill: false,
-              yAxisID: "y1",
+              yAxisID: "y2",
             },
             {
               label: "Normal Radiation",
               data: sunlightAmountNormalData,
               borderColor: "rgba(235, 162, 54, 0.4)", // Semi-transparent version of the sunlight amount color
               borderWidth: 20,
-              yAxisID: "y2",
+              yAxisID: "y1",
               fill: false,
               pointRadius: 0,
               //borderDash: [5, 5], // Optional: if you want dashed lines
@@ -51,7 +51,7 @@ export class Chart {
               data: sunlightDurationNormalData,
               borderColor: "rgba(255, 206, 86, 0.4)", // Semi-transparent version of the sunlight duration color
               borderWidth: 20,
-              yAxisID: "y1",
+              yAxisID: "y2",
               fill: false,
               pointRadius: 0,
               //borderDash: [5, 5], // Optional: if you want dashed lines
@@ -65,25 +65,6 @@ export class Chart {
                 id: "y1",
                 display: true,
                 position: "left",
-                labelString: "Hours",
-                ticks: {
-                  min: 0,
-                  max:
-                    Math.ceil(
-                      Math.max(
-                        11,
-                        ...sunlightDurationData,
-                        ...sunlightDurationNormalData
-                      )
-                    ) + 1,
-                  fontSize: 20,
-                  fontStyle: "bold",
-                },
-              },
-              {
-                id: "y2",
-                display: true,
-                position: "right",
                 gridLines: {
                   drawOnChartArea: false,
                 },
@@ -96,6 +77,25 @@ export class Chart {
                         19,
                         ...sunlightAmountData,
                         ...sunlightAmountNormalData
+                      )
+                    ) + 1,
+                  fontSize: 20,
+                  fontStyle: "bold",
+                },
+              },
+              {
+                id: "y2",
+                display: true,
+                position: "right",
+                labelString: "Hours",
+                ticks: {
+                  min: 0,
+                  max:
+                    Math.ceil(
+                      Math.max(
+                        11,
+                        ...sunlightDurationData,
+                        ...sunlightDurationNormalData
                       )
                     ) + 1,
                   fontSize: 20,

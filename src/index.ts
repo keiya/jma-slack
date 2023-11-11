@@ -19,7 +19,7 @@ const webhook = new IncomingWebhook(slackWebhookUrl);
   const chartUrl = await Chart.generateChart(data);
   console.log(chartUrl);
   await webhook.send({
-    text: `${lastSunlightData.date} の日照時間は ${lastSunlightData.sunlight_duration} 時間、合計全天日射量は ${lastSunlightData.sunlight_amount} MJ/m^2 でした`,
+    text: `${lastSunlightData.date} の合計全天日射量は ${lastSunlightData.sunlight_amount} MJ/m^2\n日照時間は ${lastSunlightData.sunlight_duration} 時間でした`,
     attachments: [
       {
         image_url: chartUrl,
